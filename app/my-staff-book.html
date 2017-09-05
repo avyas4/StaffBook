@@ -1,0 +1,26 @@
+<div class="container" ng-controller='mycontroller'>
+    <h1>Staff Search</h1>
+    <div class="form-group">
+
+        <input type="text" class="form-control serach-feed" id="usr" ng-model="query" placeholder="Search staff: 'office:OfficeName role:Role name:Name' ">
+    </div>
+    <ul class="">
+
+        <li ng-repeat='data in dataList | filter:search as filtered_result track by data.name' data-id='{{data.name}}'>
+
+            <div>
+                <img alt='...' src='http://api.adorable.io/avatars/120/{{data.name}}@adorable.png' /></div>
+            <p class='title-feed'>{{data.name}}</p>
+            <p>Role:{{data.role}}</p>
+            <p>Office:{{data.office}}</p>
+        </li>
+
+    </ul>
+
+
+    <div class="bs-example" ng-show="filtered_result.length==0">
+       <div class="alert alert-warning">
+    <strong>No results found</strong> 
+  </div>
+    </div>
+</div>
